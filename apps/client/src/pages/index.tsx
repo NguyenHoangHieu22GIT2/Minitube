@@ -1,10 +1,11 @@
-import { Header } from "@/components/layouts/Header";
-import { Button } from "@/components/ui/button";
+import VideoCard from "@/components/custom-ui/VideoCard";
+import { VideoCards } from "@/components/custom-ui/VideoCards";
+import Layout from "@/components/layouts/Layout";
 
 export default function Home() {
   return (
-    <>
-      <Header />
-    </>
+    <Layout hasNavBar={true}>
+      <VideoCards gridNumber={5}></VideoCards>
+    </Layout>
   );
 }

@@ -1,31 +1,34 @@
 import { Ubuntu } from "next/font/google";
 import Link from "next/link";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
 import { SearchCommand } from "../custom-ui/SearchCommand";
+import { DropDownMenuAvatar } from "../headers/DropDownMenuAvatar";
+import { Button } from "../ui/button";
+import { Menu } from "lucide-react";
+import { useSetting } from "@/lib/zustand/settings";
+
 const ubuntu = Ubuntu({
   weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
 });
+
 export function Header() {
+  const toggleNav = useSetting((state) => state.toggleOpenNav);
+  console.log("Hello world");
   return (
     <header
-      className={`p-2 bg-zinc-900 text-white grid grid-cols-3 items-center ${ubuntu.className}`}
+      className={`p-2 bg-zinc-900 text-white grid grid-cols-3 sticky top-0 z-50 items-center ${ubuntu.className}`}
     >
-      <nav className="justify-self-start">
+      <nav className="justify-self-start flex items-center">
+        <Button variant={"link"} onClick={() => toggleNav()}>
+          <Menu className="text-white" />
+        </Button>
         <Link href={"/"} className="hover:underline">
           Minitube
         </Link>
       </nav>
-      <Button className="justify-self-stretch flex border-2 rounded-lg">
-        <SearchCommand />
-        {/* <Input className="border-none" />
-        <Button className="border-l-2 rounded-l-none hover:bg-zinc-700 ">
-          S
-        </Button> */}
-      </Button>
+      <SearchCommand />
       <nav className="justify-self-end">
-        <h1>Hello master</h1>
+        <DropDownMenuAvatar />
       </nav>
     </header>
   );

@@ -20,6 +20,8 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command";
+import Link from "next/link";
+import { Button } from "../ui/button";
 
 export function SearchCommand() {
   const [open, setOpen] = React.useState(false);
@@ -38,17 +40,22 @@ export function SearchCommand() {
 
   return (
     <>
-      <p className="text-sm">
-        Press{" "}
+      <Button
+        onClick={() => setOpen(true)}
+        className="text-sm  justify-self-stretch flex gap-2 border-2 rounded-lg"
+      >
+        Press
         <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
           <span className="text-xs">⌘</span>J
-        </kbd>{" "}
+        </kbd>
         or click to search
-      </p>
+      </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandEmpty>
+            <Link href={"/videos"}>Find videos...</Link>
+          </CommandEmpty>
           <CommandGroup heading="Suggestions">
             <CommandItem>
               <CalendarIcon className="mr-2 h-4 w-4" />
