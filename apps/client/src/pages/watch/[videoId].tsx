@@ -1,9 +1,8 @@
 import Layout from "@/components/layouts/Layout";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { useSetting } from "@/lib/zustand/settings";
-import { AvatarImage } from "@radix-ui/react-avatar";
-import { ThumbsDown, ThumbsUp } from "lucide-react";
+import { Ellipsis, Send, ThumbsDown, ThumbsUp } from "lucide-react";
 import { useRouter } from "next/router";
 
 import {
@@ -12,7 +11,18 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { VideoCards } from "@/components/custom-ui/VideoCards";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+import { RecommendedVideos } from "@/components/custom-ui/RecommendedVideos";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function page() {
   const openNav = useSetting((state) => state.openNav);
@@ -21,8 +31,8 @@ export default function page() {
   const videoId = router.query.videoId as string;
   return (
     <Layout>
-      <section className={`text-white flex gap-5 ${!openNav && "p-5"} w-[70%]`}>
-        <div>
+      <section className={`text-white flex gap-5 ${!openNav && "p-5"} w-full`}>
+        <div className="basis-4/6">
           <video
             src="/video.mp4"
             autoPlay={true}
@@ -59,7 +69,7 @@ export default function page() {
           <section className="bg-zinc-600 p-5 rounded-lg mt-5">
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
-                <AccordionTrigger>Description?</AccordionTrigger>
+                <AccordionTrigger>Description</AccordionTrigger>
                 <AccordionContent>
                   Hello Everyone, Lorem ipsum dolor sit amet consectetur,
                   adipisicing elit. Eligendi veritatis ea fugit mollitia vitae
@@ -79,9 +89,90 @@ export default function page() {
               </AccordionItem>
             </Accordion>
           </section>
-          <section></section>
+          <section className="mt-5">
+            <div className="flex gap-2 mb-4 items-center">
+              <Avatar>
+                <AvatarImage />
+                <AvatarFallback className="text-black">CN</AvatarFallback>
+              </Avatar>
+              <Textarea />
+              <Button>
+                <Send />
+              </Button>
+            </div>
+            <section className="mt-10">
+              <div className="flex mb-2 justify-between">
+                <div className="flex  gap-2 items-center">
+                  <Avatar>
+                    <AvatarImage />
+                    <AvatarFallback className="text-black">CN</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p>This is one of the best video ever!</p>
+                    <div>
+                      <Button variant={"link"} className="text-white mr-2">
+                        <span className="mr-2">100</span>
+                        <ThumbsUp />
+                      </Button>
+                      <Button variant={"link"} className="text-white">
+                        <span className="mr-2">22</span>
+                        <ThumbsDown />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant={"link"} className="text-white">
+                      <Ellipsis />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem>Report</DropdownMenuItem>
+                    <DropdownMenuItem>Hide</DropdownMenuItem>
+                    <DropdownMenuItem>Delete</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>{" "}
+              <div className="flex mb-2 justify-between">
+                <div className="flex  gap-2 items-center">
+                  <Avatar>
+                    <AvatarImage />
+                    <AvatarFallback className="text-black">CN</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p>This is one of the best video ever!</p>
+                    <div>
+                      <Button variant={"link"} className="text-white mr-2">
+                        <span className="mr-2">100</span>
+                        <ThumbsUp />
+                      </Button>
+                      <Button variant={"link"} className="text-white">
+                        <span className="mr-2">22</span>
+                        <ThumbsDown />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant={"link"} className="text-white">
+                      <Ellipsis />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem>Report</DropdownMenuItem>
+                    <DropdownMenuItem>Hide</DropdownMenuItem>
+                    <DropdownMenuItem>Delete</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+            </section>
+          </section>
         </div>
-        <div></div>
+        <div className="basis-2/6">
+          <RecommendedVideos />
+        </div>
       </section>
     </Layout>
   );

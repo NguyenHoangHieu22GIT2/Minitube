@@ -20,8 +20,8 @@ export default function VideoCard() {
             <Image
               alt="A video"
               src={"/thumbnail.jpg"}
-              width={500}
-              height={500}
+              width={1920}
+              height={1080}
             />
           </AspectRatio>
         </CardHeader>

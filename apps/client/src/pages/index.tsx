@@ -4,8 +4,8 @@ import Layout from "@/components/layouts/Layout";
 
 export default function Home() {
   return (
-    <Layout hasNavBar={true}>
-      <VideoCards gridNumber={5}></VideoCards>
+    <Layout>
+      <VideoCards></VideoCards>
     </Layout>
   );
 }
