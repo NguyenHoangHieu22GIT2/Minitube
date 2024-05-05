@@ -1,13 +1,8 @@
 import VideoCard from "./VideoCard";
 
-type props = {
-  gridNumber: number;
-};
-
-export function VideoCards(props: props) {
-  const styles = `grid-cols-${props.gridNumber}`;
+export function VideoCards() {
   return (
-    <div className={`grid ${styles} gap-5 w-full`}>
+    <div className="grid grid-cols-3  gap-5 w-full">
       <VideoCard />
       <VideoCard />
       <VideoCard />
