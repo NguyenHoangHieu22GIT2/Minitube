@@ -1,82 +1,57 @@
-# Turborepo starter
+# Minitube ( A clone of youtube )
 
-This is an official starter Turborepo.
+A mini youtube with pretty much all important features that a video-sharing platform should have.
 
-## Using this example
+### Philosophy of the project
 
-Run the following command:
+- Minimal Code.
+- Easy to understand.
+- Easy to maintain.
+- Production-ready
+
+### Requirements
+
+- Node.js LTS (v20+)
+- Pnpm or Yarn or Npm
+- Redis
+- Postgresql Server
+
+### Getting Started
+
+I assume that you already installed postgresql and redis, if not then download [postgresql](https://www.postgresql.org/) and [redis](https://redis.io/) here.
+
+Okay, let's get into configurating the project so that you can run it.
+
+First of all, we have to install dependencies:
 
 ```sh
-npx create-turbo@latest
+npm install
+# OR
+pnpm install # I use pnpm so if you want seamless integration, use pnpm.
+# OR
+yarn install
 ```
 
-## What's inside?
+Then we should configure the connection of postgresql and redis into `.env`
 
-This Turborepo includes the following packages/apps:
+```sh
+REDIS_HOST=0000
 
-### Apps and Packages
+REDIS_PORT=6379
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+POSTGRES_URL=EXAMPLE.COM
 ```
 
-### Develop
+With all of it done, you can start the server now with these 3 main commands:
 
-To develop all apps and packages, run the following command:
+```sh
+pnpm --filter client run dev # For running the client-side
 
-```
-cd my-turborepo
-pnpm dev
-```
+pnpm --filter server run start:dev # For running the server-side
 
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+pnpm run dev # For running both side.
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+### Contributions
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
-# Minitube
+Everyone is welcome to contribute to this project. Feel free to open an issue if you have question or found a bug.

@@ -18,11 +18,11 @@ export function DropDownMenuAvatar() {
         <UserAvatar />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel>
-          <Link href="/profile/1">My account</Link>
-        </DropdownMenuLabel>
+        <DropdownMenuLabel>My account</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Profile</DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link href="/profile/1">My Profile</Link>
+        </DropdownMenuItem>
         <DropdownMenuItem>
           <Link href="/settings">Settings</Link>
         </DropdownMenuItem>
