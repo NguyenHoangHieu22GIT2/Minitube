@@ -15,7 +15,7 @@ import {
   Video,
   Videotape,
 } from "lucide-react";
-import { NavLinks } from "../pages/home/NavLinks";
+import { NavLinks } from "../pages/home/components/NavLinks";
 import { useSetting } from "@/lib/zustand/settings";
 export default function Layout(props: props) {
   const openNav = useSetting((state) => state.openNav);

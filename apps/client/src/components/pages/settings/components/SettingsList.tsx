@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLinks } from "../home/NavLinks";
+import { NavLinks } from "../../home/components/NavLinks";
 
 type props = {
   chosenSetting: "profile" | "account" | "appearance" | "bans-people";

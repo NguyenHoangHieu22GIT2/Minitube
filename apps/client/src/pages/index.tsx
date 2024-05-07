@@ -1,10 +1,3 @@
-import { VideoCards } from "@/components/custom-ui/VideoCards";
-import Layout from "@/components/layouts/Layout";
+import HomePage from "@/components/pages/home/HomePage";
 
-export default function Home() {
-  return (
-    <Layout>
-      <VideoCards></VideoCards>
-    </Layout>
-  );
-}
+export default HomePage;
