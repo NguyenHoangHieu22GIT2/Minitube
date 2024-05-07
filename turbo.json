@@ -2,6 +2,15 @@
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
   "pipeline": {
+    "eslint-config": {
+      "dependsOn": ["^eslint-config"]
+    },
+    "app1": {
+      "dependsOn": ["^app1", "eslint-config"]
+    },
+    "app2": {
+      "dependsOn": ["^app2", "eslint-config"]
+    },  
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]

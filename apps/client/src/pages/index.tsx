@@ -1,4 +1,3 @@
-import VideoCard from "@/components/custom-ui/VideoCard";
 import { VideoCards } from "@/components/custom-ui/VideoCards";
 import Layout from "@/components/layouts/Layout";
 
