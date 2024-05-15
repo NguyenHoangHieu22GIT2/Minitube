@@ -1,3 +1,5 @@
+# The project is still in developemnt, This is my personal project so it will take a long time to finish since I always want to improve it :) so please don't wait for the final version of it if you really want to study, fork it and do it yourself
+
 # Minitube ( A clone of youtube )
 
 A mini youtube with pretty much all important features that a video-sharing platform should have.
